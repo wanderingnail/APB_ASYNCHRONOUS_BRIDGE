@@ -1,0 +1,982 @@
+$date
+	Mon Oct 03 22:58:55 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ns
+$end
+$scope module tb_asyn_bridge $end
+$var wire 1 ! b_pwrite $end
+$var wire 32 " b_pwdata [31:0] $end
+$var wire 2 # b_pstrb [1:0] $end
+$var wire 1 $ b_psel $end
+$var wire 1 % b_pready $end
+$var wire 32 & b_prdata [31:0] $end
+$var wire 4 ' b_pprot [3:0] $end
+$var wire 1 ( b_penable $end
+$var wire 8 ) b_paddr [7:0] $end
+$var wire 1 * a_pready $end
+$var wire 32 + a_prdata [31:0] $end
+$var parameter 32 , ADDR_WD $end
+$var parameter 32 - DATA_WD $end
+$var parameter 32 . PROT_WD $end
+$var parameter 32 / STRB_WD $end
+$var reg 8 0 a_paddr [7:0] $end
+$var reg 1 1 a_pclk $end
+$var reg 1 2 a_penable $end
+$var reg 4 3 a_pprot [3:0] $end
+$var reg 1 4 a_prst_n $end
+$var reg 1 5 a_psel $end
+$var reg 2 6 a_pstrb [1:0] $end
+$var reg 32 7 a_pwdata [31:0] $end
+$var reg 1 8 a_pwrite $end
+$var reg 1 9 b_pclk $end
+$var reg 1 : b_prst_n $end
+$scope module asyn_bridge_top $end
+$var wire 8 ; a_paddr [7:0] $end
+$var wire 1 1 a_pclk $end
+$var wire 1 2 a_penable $end
+$var wire 4 < a_pprot [3:0] $end
+$var wire 1 4 a_prst_n $end
+$var wire 1 5 a_psel $end
+$var wire 2 = a_pstrb [1:0] $end
+$var wire 32 > a_pwdata [31:0] $end
+$var wire 1 8 a_pwrite $end
+$var wire 1 9 b_pclk $end
+$var wire 1 : b_prst_n $end
+$var wire 1 ? write $end
+$var wire 32 @ wdata [31:0] $end
+$var wire 2 A strb [1:0] $end
+$var wire 32 B rdata [31:0] $end
+$var wire 4 C prot [3:0] $end
+$var wire 1 D b_ready_req $end
+$var wire 1 ! b_pwrite $end
+$var wire 32 E b_pwdata [31:0] $end
+$var wire 2 F b_pstrb [1:0] $end
+$var wire 1 $ b_psel $end
+$var wire 1 % b_pready $end
+$var wire 32 G b_prdata [31:0] $end
+$var wire 4 H b_pprot [3:0] $end
+$var wire 1 ( b_penable $end
+$var wire 8 I b_paddr [7:0] $end
+$var wire 8 J addr [7:0] $end
+$var wire 1 * a_pready $end
+$var wire 32 K a_prdata [31:0] $end
+$var wire 1 L a_apb_req $end
+$var parameter 32 M ADDR_WD $end
+$var parameter 32 N DATA_WD $end
+$var parameter 32 O PROT_WD $end
+$var parameter 32 P STRB_WD $end
+$scope module high_frequency $end
+$var wire 1 L a_apb_req $end
+$var wire 8 Q a_paddr [7:0] $end
+$var wire 1 1 a_pclk $end
+$var wire 1 2 a_penable $end
+$var wire 4 R a_pprot [3:0] $end
+$var wire 32 S a_prdata [31:0] $end
+$var wire 1 * a_pready $end
+$var wire 1 4 a_prst_n $end
+$var wire 1 5 a_psel $end
+$var wire 2 T a_pstrb [1:0] $end
+$var wire 32 U a_pwdata [31:0] $end
+$var wire 1 8 a_pwrite $end
+$var wire 8 V addr [7:0] $end
+$var wire 1 W b2a_ready_req_edge $end
+$var wire 4 X prot [3:0] $end
+$var wire 2 Y strb [1:0] $end
+$var wire 32 Z wdata [31:0] $end
+$var wire 1 ? write $end
+$var wire 32 [ rdata [31:0] $end
+$var wire 1 D b_ready_req $end
+$var parameter 32 \ ADDR_WD $end
+$var parameter 32 ] DATA_WD $end
+$var parameter 32 ^ PROT_WD $end
+$var parameter 32 _ STRB_WD $end
+$var reg 1 ` a_apb_req_r $end
+$var reg 8 a a_paddr_r [7:0] $end
+$var reg 4 b a_pprot_r [3:0] $end
+$var reg 1 c a_pready_r $end
+$var reg 2 d a_pstrb_r [1:0] $end
+$var reg 32 e a_pwdata_r [31:0] $end
+$var reg 1 ? a_pwrite_r $end
+$var reg 1 f q1_r $end
+$var reg 1 g q2_r $end
+$var reg 1 h q3_r $end
+$upscope $end
+$scope module low_frequency $end
+$var wire 1 i a2b_apb_req_edge $end
+$var wire 1 L a_apb_req $end
+$var wire 8 j addr [7:0] $end
+$var wire 8 k b_paddr [7:0] $end
+$var wire 1 9 b_pclk $end
+$var wire 1 ( b_penable $end
+$var wire 4 l b_pprot [3:0] $end
+$var wire 1 : b_prst_n $end
+$var wire 2 m b_pstrb [1:0] $end
+$var wire 32 n b_pwdata [31:0] $end
+$var wire 1 ! b_pwrite $end
+$var wire 1 D b_ready_req $end
+$var wire 4 o prot [3:0] $end
+$var wire 2 p strb [1:0] $end
+$var wire 32 q wdata [31:0] $end
+$var wire 1 ? write $end
+$var wire 32 r rdata [31:0] $end
+$var wire 1 $ b_psel $end
+$var wire 1 % b_pready $end
+$var wire 32 s b_prdata [31:0] $end
+$var parameter 32 t ADDR_WD $end
+$var parameter 32 u DATA_WD $end
+$var parameter 32 v PROT_WD $end
+$var parameter 32 w STRB_WD $end
+$var reg 1 x b_penable_r $end
+$var reg 1 $ b_psel_r $end
+$var reg 1 y b_ready_req_r $end
+$var reg 1 z q1_r $end
+$var reg 1 { q2_r $end
+$var reg 1 | q3_r $end
+$var reg 32 } rdata_r [31:0] $end
+$upscope $end
+$upscope $end
+$scope module slave_mux $end
+$var wire 8 ~ b_paddr [7:0] $end
+$var wire 1 9 b_pclk $end
+$var wire 1 ( b_penable $end
+$var wire 4 !" b_pprot [3:0] $end
+$var wire 32 "" b_prdata [31:0] $end
+$var wire 1 % b_pready $end
+$var wire 1 : b_prst_n $end
+$var wire 1 $ b_psel $end
+$var wire 2 #" b_pstrb [1:0] $end
+$var wire 32 $" b_pwdata [31:0] $end
+$var wire 1 ! b_pwrite $end
+$var wire 1 %" pready0 $end
+$var wire 1 &" pready1 $end
+$var wire 1 '" pready2 $end
+$var wire 1 (" pready3 $end
+$var wire 1 )" psel0 $end
+$var wire 1 *" psel1 $end
+$var wire 1 +" psel2 $end
+$var wire 1 ," psel3 $end
+$var wire 4 -" selx [3:0] $end
+$var wire 32 ." prdata3 [31:0] $end
+$var wire 32 /" prdata2 [31:0] $end
+$var wire 32 0" prdata1 [31:0] $end
+$var wire 32 1" prdata0 [31:0] $end
+$var wire 2 2" addrx [1:0] $end
+$var parameter 32 3" ADDR_WD $end
+$var parameter 32 4" DATA_WD $end
+$var parameter 32 5" PROT_WD $end
+$var parameter 32 6" STRB_WD $end
+$var reg 32 7" b_prdata_r [31:0] $end
+$scope module slave0 $end
+$var wire 8 8" b_paddr [7:0] $end
+$var wire 1 9 b_pclk $end
+$var wire 1 ( b_penable $end
+$var wire 4 9" b_pprot [3:0] $end
+$var wire 32 :" b_prdata [31:0] $end
+$var wire 1 %" b_pready $end
+$var wire 1 : b_prst_n $end
+$var wire 1 )" b_psel $end
+$var wire 2 ;" b_pstrb [1:0] $end
+$var wire 32 <" b_pwdata [31:0] $end
+$var wire 1 ! b_pwrite $end
+$var parameter 32 =" ADDR_WD $end
+$var parameter 32 >" DATA_WD $end
+$var parameter 32 ?" PROT_WD $end
+$var parameter 32 @" STRB_WD $end
+$upscope $end
+$scope module slave1 $end
+$var wire 8 A" b_paddr [7:0] $end
+$var wire 1 9 b_pclk $end
+$var wire 1 ( b_penable $end
+$var wire 4 B" b_pprot [3:0] $end
+$var wire 32 C" b_prdata [31:0] $end
+$var wire 1 &" b_pready $end
+$var wire 1 : b_prst_n $end
+$var wire 1 *" b_psel $end
+$var wire 2 D" b_pstrb [1:0] $end
+$var wire 32 E" b_pwdata [31:0] $end
+$var wire 1 ! b_pwrite $end
+$var parameter 32 F" ADDR_WD $end
+$var parameter 32 G" DATA_WD $end
+$var parameter 32 H" PROT_WD $end
+$var parameter 32 I" STRB_WD $end
+$upscope $end
+$scope module slave2 $end
+$var wire 8 J" b_paddr [7:0] $end
+$var wire 1 9 b_pclk $end
+$var wire 1 ( b_penable $end
+$var wire 4 K" b_pprot [3:0] $end
+$var wire 32 L" b_prdata [31:0] $end
+$var wire 1 '" b_pready $end
+$var wire 1 : b_prst_n $end
+$var wire 1 +" b_psel $end
+$var wire 2 M" b_pstrb [1:0] $end
+$var wire 32 N" b_pwdata [31:0] $end
+$var wire 1 ! b_pwrite $end
+$var parameter 32 O" ADDR_WD $end
+$var parameter 32 P" DATA_WD $end
+$var parameter 32 Q" PROT_WD $end
+$var parameter 32 R" STRB_WD $end
+$upscope $end
+$scope module slave3 $end
+$var wire 8 S" b_paddr [7:0] $end
+$var wire 1 9 b_pclk $end
+$var wire 1 ( b_penable $end
+$var wire 4 T" b_pprot [3:0] $end
+$var wire 32 U" b_prdata [31:0] $end
+$var wire 1 (" b_pready $end
+$var wire 1 : b_prst_n $end
+$var wire 1 ," b_psel $end
+$var wire 2 V" b_pstrb [1:0] $end
+$var wire 32 W" b_pwdata [31:0] $end
+$var wire 1 ! b_pwrite $end
+$var parameter 32 X" ADDR_WD $end
+$var parameter 32 Y" DATA_WD $end
+$var parameter 32 Z" PROT_WD $end
+$var parameter 32 [" STRB_WD $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 ["
+b100 Z"
+b100000 Y"
+b1000 X"
+b10 R"
+b100 Q"
+b100000 P"
+b1000 O"
+b10 I"
+b100 H"
+b100000 G"
+b1000 F"
+b10 @"
+b100 ?"
+b100000 >"
+b1000 ="
+b10 6"
+b100 5"
+b100000 4"
+b1000 3"
+b10 w
+b100 v
+b100000 u
+b1000 t
+b10 _
+b100 ^
+b100000 ]
+b1000 \
+b10 P
+b100 O
+b100000 N
+b1000 M
+b10 /
+b100 .
+b100000 -
+b1000 ,
+$end
+#0
+$dumpvars
+bx W"
+b11 V"
+bx U"
+bx T"
+bx S"
+bx N"
+b11 M"
+bx L"
+bx K"
+bx J"
+bx E"
+b11 D"
+bx C"
+bx B"
+bx A"
+bx <"
+b11 ;"
+bx :"
+bx 9"
+bx 8"
+bx 7"
+bx 2"
+bx 1"
+bx 0"
+bx /"
+bx ."
+bx -"
+0,"
+0+"
+0*"
+0)"
+1("
+1'"
+1&"
+1%"
+bx $"
+b11 #"
+bx ""
+bx !"
+bx ~
+b0 }
+0|
+0{
+0z
+0y
+0x
+bx s
+b0 r
+bx q
+b11 p
+bx o
+bx n
+b11 m
+bx l
+bx k
+bx j
+0i
+0h
+0g
+0f
+bx e
+bx d
+1c
+bx b
+bx a
+0`
+b0 [
+bx Z
+b11 Y
+bx X
+0W
+bx V
+b1111111111111111 U
+b11 T
+b0 S
+b0 R
+b111111 Q
+0L
+b0 K
+bx J
+bx I
+bx H
+bx G
+b11 F
+bx E
+0D
+bx C
+b0 B
+b11 A
+bx @
+x?
+b1111111111111111 >
+b11 =
+b0 <
+b111111 ;
+0:
+09
+18
+b1111111111111111 7
+b11 6
+05
+04
+b0 3
+02
+01
+b111111 0
+b0 +
+1*
+bx )
+0(
+bx '
+bx &
+x%
+0$
+b11 #
+bx "
+x!
+$end
+#200
+1:
+14
+#300
+11
+#600
+01
+19
+#900
+11
+#910
+15
+#1200
+01
+09
+#1500
+1%
+b1 -"
+b0 2"
+0*
+0c
+b11 d
+b0 '
+b0 H
+b0 l
+b0 !"
+b0 9"
+b0 B"
+b0 K"
+b0 T"
+b0 C
+b0 X
+b0 b
+b0 o
+b111111 )
+b111111 I
+b111111 k
+b111111 ~
+b111111 8"
+b111111 A"
+b111111 J"
+b111111 S"
+b111111 J
+b111111 V
+b111111 a
+b111111 j
+b1111111111111111 "
+b1111111111111111 E
+b1111111111111111 n
+b1111111111111111 $"
+b1111111111111111 <"
+b1111111111111111 E"
+b1111111111111111 N"
+b1111111111111111 W"
+b1111111111111111 @
+b1111111111111111 Z
+b1111111111111111 e
+b1111111111111111 q
+1!
+1?
+1L
+1`
+11
+#1510
+12
+#1800
+1z
+01
+19
+#2100
+11
+#2400
+01
+09
+#2700
+11
+#3000
+1i
+1{
+01
+19
+#3300
+11
+#3600
+01
+09
+#3900
+11
+#4200
+0i
+1)"
+1|
+1$
+01
+19
+#4500
+11
+#4800
+01
+09
+#5100
+11
+#5400
+b1111111111111111 &
+b1111111111111111 G
+b1111111111111111 s
+b1111111111111111 ""
+b1111111111111111 7"
+b1111111111111111 1"
+b1111111111111111 :"
+1(
+1x
+01
+19
+#5700
+11
+#6000
+01
+09
+#6300
+11
+#6600
+0)"
+1D
+1y
+0(
+0x
+0$
+01
+19
+#6900
+1f
+11
+#7200
+01
+09
+#7500
+1W
+1g
+11
+#7800
+01
+19
+#8100
+0W
+1h
+1*
+1c
+11
+#8400
+01
+09
+#8700
+0*
+0c
+02
+05
+11
+#9000
+01
+19
+08
+#9300
+11
+#9600
+01
+09
+#9900
+11
+#10200
+01
+19
+#10500
+11
+#10800
+01
+09
+#11100
+11
+#11400
+01
+19
+#11700
+11
+#11710
+15
+#12000
+01
+09
+#12300
+0!
+0?
+0L
+0`
+11
+#12310
+12
+#12600
+0z
+01
+19
+#12900
+11
+#13200
+01
+09
+#13500
+11
+#13800
+1i
+0{
+01
+19
+#14000
+b11111111111111110000000000000000 7
+b11111111111111110000000000000000 >
+b11111111111111110000000000000000 U
+b1111111 0
+b1111111 ;
+b1111111 Q
+18
+#14100
+11
+#14400
+01
+09
+#14700
+11
+#15000
+1)"
+0i
+1$
+0|
+01
+19
+#15300
+11
+#15600
+01
+09
+#15900
+11
+#16200
+1(
+1x
+b1111111111111111 +
+b1111111111111111 K
+b1111111111111111 S
+b1111111111111111 B
+b1111111111111111 [
+b1111111111111111 r
+b1111111111111111 }
+01
+19
+#16500
+11
+#16800
+01
+09
+#17100
+11
+#17400
+0)"
+0D
+0y
+0(
+0x
+0$
+01
+19
+#17700
+0f
+11
+#18000
+01
+09
+#18300
+1W
+0g
+11
+#18600
+01
+19
+#18900
+0W
+0h
+1*
+1c
+11
+#19200
+01
+09
+#19500
+0*
+0c
+02
+05
+11
+#19800
+01
+19
+#20100
+11
+#20400
+01
+09
+#20700
+11
+#21000
+01
+19
+#21300
+11
+#21600
+01
+09
+#21900
+11
+#22200
+01
+19
+#22500
+11
+#22510
+15
+#22800
+01
+09
+#23100
+b10 -"
+b1 2"
+bx &
+bx G
+bx s
+bx ""
+bx 7"
+bx 1"
+bx :"
+b1111111 )
+b1111111 I
+b1111111 k
+b1111111 ~
+b1111111 8"
+b1111111 A"
+b1111111 J"
+b1111111 S"
+b1111111 J
+b1111111 V
+b1111111 a
+b1111111 j
+b11111111111111110000000000000000 "
+b11111111111111110000000000000000 E
+b11111111111111110000000000000000 n
+b11111111111111110000000000000000 $"
+b11111111111111110000000000000000 <"
+b11111111111111110000000000000000 E"
+b11111111111111110000000000000000 N"
+b11111111111111110000000000000000 W"
+b11111111111111110000000000000000 @
+b11111111111111110000000000000000 Z
+b11111111111111110000000000000000 e
+b11111111111111110000000000000000 q
+1!
+1?
+1L
+1`
+11
+#23110
+12
+#23400
+1z
+01
+19
+#23700
+11
+#24000
+01
+09
+#24200
+08
+#24300
+11
+#24600
+1i
+1{
+01
+19
+#24900
+11
+#25200
+01
+09
+#25500
+11
+#25800
+0i
+1*"
+1|
+1$
+01
+19
+#26100
+11
+#26400
+01
+09
+#26700
+11
+#27000
+b11111111111111110000000000000000 &
+b11111111111111110000000000000000 G
+b11111111111111110000000000000000 s
+b11111111111111110000000000000000 ""
+b11111111111111110000000000000000 7"
+b11111111111111110000000000000000 0"
+b11111111111111110000000000000000 C"
+1(
+1x
+01
+19
+#27300
+11
+#27600
+01
+09
+#27900
+11
+#28200
+0*"
+1D
+1y
+0(
+0x
+0$
+01
+19
+#28500
+1f
+11
+#28800
+01
+09
+#29100
+1W
+1g
+11
+#29400
+01
+19
+#29700
+0W
+1h
+1*
+1c
+11
+#30000
+01
+09
+#30300
+0*
+0c
+02
+05
+11
+#30600
+01
+19
+#30900
+11
+#31200
+01
+09
+#31500
+11
+#31800
+01
+19
+#32100
+11
+#32400
+01
+09
+#32700
+11
+#33000
+01
+19
+#33300
+11
+#33310
+15
+#33600
+01
+09
+#33900
+0!
+0?
+0L
+0`
+11
+#33910
+12
+#34200
+0z
+01
+19
+#34500
+11
+#34800
+01
+09
+#35100
+11
+#35400
+1i
+0{
+01
+19
+#35700
+11
+#36000
+01
+09
+#36300
+11
+#36600
+1*"
+0i
+1$
+0|
+01
+19
+#36900
+11
+#37200
+01
+09
+#37500
+11
+#37800
+1(
+1x
+b11111111111111110000000000000000 +
+b11111111111111110000000000000000 K
+b11111111111111110000000000000000 S
+b11111111111111110000000000000000 B
+b11111111111111110000000000000000 [
+b11111111111111110000000000000000 r
+b11111111111111110000000000000000 }
+01
+19
+#38100
+11
+#38400
+01
+09
+#38700
+11
+#39000
+0*"
+0D
+0y
+0(
+0x
+0$
+01
+19
+#39300
+0f
+11
+#39600
+01
+09
+#39900
+1W
+0g
+11
+#40200
+01
+19
