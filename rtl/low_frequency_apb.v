@@ -34,6 +34,12 @@ reg b_psel_r;
 reg b_penable_r;
 reg b_ready_req_r;
 
+reg                 b_pwrite_r;
+reg [ADDR_WD-1 : 0] b_paddr_r;
+reg [DATA_WD-1 : 0] b_pwdata_r;
+reg [PROT_WD-1 : 0] b_pprot_r'
+reg [STRB_WD-1 : 0] b_pstrb_r;
+
 reg q1_r, q2_r, q3_r;
 
 wire a2b_apb_req_edge;
@@ -76,12 +82,21 @@ assign b_psel      = b_psel_r;
 assign b_penable   = b_penable_r;
 assign b_ready_req = b_ready_req_r;
 
-// data path
-assign b_pwrite = write;
-assign b_pwdata = wdata;
-assign b_paddr  = addr;
-assign b_pprot  = prot;
-assign b_pstrb  = strb;
+always @(posedge b_pclk) begin
+    if (a2b_apb_req_edge) begin
+        b_pwrite_r <= write;
+        b_pwdata_r <= wdata;
+        b_paddr_r  <= addr;
+        b_pprot_r  <= prot;
+        b_pstrb_r  <= strb;
+    end
+end
+
+assign b_pwrite = b_pwrite_r;
+assign b_pwdata = b_pwdata_r;
+assign b_paddr  = b_paddr_r;
+assign b_pprot  = b_pprot_r;
+assign b_pstrb  = b_pstrb_r;
 
 always @(posedge b_pclk or negedge b_prst_n) begin
     if (!b_prst_n) begin
