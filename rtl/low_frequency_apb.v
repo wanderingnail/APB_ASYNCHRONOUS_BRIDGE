@@ -37,7 +37,7 @@ reg b_ready_req_r;
 reg                 b_pwrite_r;
 reg [ADDR_WD-1 : 0] b_paddr_r;
 reg [DATA_WD-1 : 0] b_pwdata_r;
-reg [PROT_WD-1 : 0] b_pprot_r'
+reg [PROT_WD-1 : 0] b_pprot_r;
 reg [STRB_WD-1 : 0] b_pstrb_r;
 
 reg q1_r, q2_r, q3_r;
@@ -59,21 +59,30 @@ assign a2b_apb_req_edge = q2_r ^ q3_r;
 //  control path
 always @(posedge b_pclk or negedge b_prst_n) begin
     if (!b_prst_n) begin
-        b_psel_r       <= 1'b0;
-        b_penable_r    <= 1'b0;
-        b_ready_req_r  <= 1'b0;
+        b_psel_r <= 1'b0;
     end
     else begin 
         if (a2b_apb_req_edge) begin
             b_psel_r <= 1'b1;
+        end     
+        else if (b_penable && b_pready) begin
+            b_psel_r <= 1'b0;
         end
+    end
+end
+
+always @(posedge b_pclk or negedge b_prst_n) begin
+    if (!b_prst_n) begin
+        b_penable_r   <= 1'b0;
+        b_ready_req_r <= 1'b0;
+    end
+    else begin
         if (b_psel) begin
             b_penable_r <= 1'b1;
         end
         if (b_penable && b_pready) begin
-            b_psel_r       <= 1'b0;
-            b_penable_r    <= 1'b0;
-            b_ready_req_r  <= ~b_ready_req_r;
+            b_penable_r   <= 1'b0;
+            b_ready_req_r <= ~b_ready_req_r;
         end
     end
 end
