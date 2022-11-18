@@ -1,18 +1,18 @@
 Compiling VVP ...
  ... VVP file version 12.0 (devel) (s20150603-1539-g2693dd32b)
 Compile cleanup...
- ...      112 functors (net_fun pool=524288 bytes)
-                 44 logic
+ ...      118 functors (net_fun pool=524288 bytes)
+                 45 logic
                   0 bufif
                   0 resolv
-                 35 signals
- ...      101 filters (net_fil pool=524288 bytes)
- ...      428 opcodes (24576 bytes)
- ...      185 nets
- ...      112 vvp_nets (1048544 bytes)
+                 36 signals
+ ...      107 filters (net_fil pool=524288 bytes)
+ ...      440 opcodes (24576 bytes)
+ ...      190 nets
+ ...      118 vvp_nets (1048544 bytes)
  ...        0 arrays (0 words)
  ...        4 memories
-                  4 logic (1024 words)
+                  4 logic (256 words)
                   0 real (0 words)
  ...       10 scopes
 Running ...
@@ -22,15 +22,15 @@ Running ...
  ...run scheduler
 VCD info: dumpfile asyn_bridge.vcd opened for output.
 VCD warning: $dumpvars: Package ($unit) is not dumpable with VCD.
-../sim/tb_asyn_bridge.v:67: $finish called at 2002 (1ns)
+../sim/tb_asyn_bridge.v:67: $finish called at 100002 (1ns)
  ...execute Postsim callbacks
 Event counts:
-         672 time steps (pool=113)
-        2031 thread schedule events
-        3374 assign events
+       33339 time steps (pool=113)
+      100951 thread schedule events
+      154116 assign events
              ...assign(vec4) pool=9362
              ...assign(vec8) pool=204
              ...assign(real) pool=256
              ...assign(word) pool=128
              ...assign(word/r) pool=204
-         749 other events (pool=4096)
+       50634 other events (pool=4096)

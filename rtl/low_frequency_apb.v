@@ -28,8 +28,6 @@ module low_frequency_apb #(
     output [DATA_WD-1 : 0] rdata                   
 );
 
-reg [DATA_WD-1 : 0] rdata_r;
-
 reg b_psel_r;
 reg b_penable_r;
 reg b_ready_req_r;
@@ -39,6 +37,8 @@ reg [ADDR_WD-1 : 0] b_paddr_r;
 reg [DATA_WD-1 : 0] b_pwdata_r;
 reg [PROT_WD-1 : 0] b_pprot_r;
 reg [STRB_WD-1 : 0] b_pstrb_r;
+
+reg [DATA_WD-1 : 0] rdata_r;
 
 reg q1_r, q2_r, q3_r;
 
@@ -87,10 +87,6 @@ always @(posedge b_pclk or negedge b_prst_n) begin
     end
 end
 
-assign b_psel      = b_psel_r;
-assign b_penable   = b_penable_r;
-assign b_ready_req = b_ready_req_r;
-
 always @(posedge b_pclk) begin
     if (a2b_apb_req_edge) begin
         b_pwrite_r <= write;
@@ -101,22 +97,21 @@ always @(posedge b_pclk) begin
     end
 end
 
-assign b_pwrite = b_pwrite_r;
-assign b_pwdata = b_pwdata_r;
-assign b_paddr  = b_paddr_r;
-assign b_pprot  = b_pprot_r;
-assign b_pstrb  = b_pstrb_r;
-
 always @(posedge b_pclk or negedge b_prst_n) begin
-    if (!b_prst_n) begin
-        rdata_r <= 'b0;
-    end
-    else if (!b_pwrite && b_psel) begin
+    if (!b_pwrite && b_psel) begin
         rdata_r <= b_prdata;
     end
 end
 
-assign rdata = rdata_r;
+assign b_psel      = b_psel_r;
+assign b_penable   = b_penable_r;
+assign b_ready_req = b_ready_req_r;
+assign b_pwrite    = b_pwrite_r;
+assign b_pwdata    = b_pwdata_r;
+assign b_paddr     = b_paddr_r;
+assign b_pprot     = b_pprot_r;
+assign b_pstrb     = b_pstrb_r;
+assign rdata       = rdata_r;
 
 endmodule
 

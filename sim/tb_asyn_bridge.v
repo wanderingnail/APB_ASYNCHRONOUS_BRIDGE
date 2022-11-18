@@ -2,7 +2,7 @@
 module tb_asyn_bridge;
 
 localparam ADDR_WD = 8,
-           DATA_WD = 8,
+           DATA_WD = 6,
            STRB_WD = 2,
            PROT_WD = 4;
 
@@ -31,7 +31,7 @@ wire [STRB_WD-1 : 0] b_pstrb;
 wire [DATA_WD-1 : 0] b_prdata;
 wire                 b_pready;
 
-reg  [DATA_WD-1 : 0] cnt;
+reg  [ADDR_WD-1 : 0] cnt;
 
 initial begin
     $dumpfile("asyn_bridge.vcd");
@@ -63,7 +63,7 @@ initial begin
     #1;
     a_prst_n = 1'b1;
     b_prst_n = 1'b1;
-    #2000;
+    #100000;
     $finish;
 end
 
@@ -71,11 +71,13 @@ always @(posedge a_pclk or negedge a_prst_n) begin
     if (!a_prst_n) begin
         a_psel <= 1'b0;
     end
-    else if (!a_psel) begin
-        a_psel <= $random;
-    end
-    else if (a_penable && a_pready) begin
-        a_psel <= $random;
+    else begin
+        if (!a_psel) begin
+            a_psel <= $random;
+        end
+        else if (a_penable && a_pready) begin
+            a_psel <= $random;
+        end
     end
 end
 
@@ -83,11 +85,13 @@ always @(posedge a_pclk or negedge a_prst_n) begin
     if (!a_prst_n) begin
         a_penable <= 1'b0;
     end
-    else if (a_psel) begin
-        a_penable <= 1'b1;
-    end
-    else if (a_penable && a_pready) begin
-        a_penable <= 1'b0;
+    else begin
+        if (a_psel) begin
+            a_penable <= 1'b1;
+        end
+        if (a_penable && a_pready) begin
+            a_penable <= 1'b0;
+        end
     end
 end
 
@@ -100,10 +104,18 @@ always @(posedge a_pclk or negedge a_prst_n) begin
     end
 end
 
+always @(posedge a_pclk or negedge a_prst_n) begin
+    if (!a_prst_n) begin
+        a_pwrite <= 1'b1;
+    end
+    else if (cnt == {ADDR_WD{1'b1}}) begin
+        a_pwrite <= 1'b0;
+    end
+end
+
 always @(posedge a_pclk) begin
-    a_pwrite <= ~cnt[5];
     a_paddr  <= cnt;
-    a_pwdata <= cnt;
+    a_pwdata <= cnt[DATA_WD-1 : 0];
 end
 
 initial begin
