@@ -7,8 +7,8 @@ Compile cleanup...
                   0 resolv
                  36 signals
  ...      107 filters (net_fil pool=524288 bytes)
- ...      440 opcodes (24576 bytes)
- ...      190 nets
+ ...      422 opcodes (24576 bytes)
+ ...      191 nets
  ...      118 vvp_nets (1048544 bytes)
  ...        0 arrays (0 words)
  ...        4 memories
@@ -26,11 +26,11 @@ VCD warning: $dumpvars: Package ($unit) is not dumpable with VCD.
  ...execute Postsim callbacks
 Event counts:
        33339 time steps (pool=113)
-      100951 thread schedule events
-      154116 assign events
+      100950 thread schedule events
+      153237 assign events
              ...assign(vec4) pool=9362
              ...assign(vec8) pool=204
              ...assign(real) pool=256
              ...assign(word) pool=128
              ...assign(word/r) pool=204
-       50634 other events (pool=4096)
+       52915 other events (pool=4096)

@@ -37,9 +37,9 @@ reg [DATA_WD-1 : 0] a_prdata_r;
 reg                 a_pready_r;
 reg                 a_apb_req_r;
 
-wire b2a_ready_req_edge;
-
 reg q1_r, q2_r, q3_r;
+
+wire b2a_ready_req_edge;
 
 // generate pulse
 always @(posedge a_pclk or negedge a_prst_n) begin
@@ -56,29 +56,27 @@ assign b2a_ready_req_edge = q2_r ^ q3_r;
 always @(posedge a_pclk or negedge a_prst_n) begin
     if (!a_prst_n) begin
         a_apb_req_r <= 1'b0;
-    end
-    else if (a_psel && !a_penable) begin
-        a_apb_req_r <= !a_apb_req_r;
-        a_pwrite_r  <= a_pwrite;
-        a_pwdata_r  <= a_pwdata;
-        a_paddr_r   <= a_paddr;
-        a_pprot_r   <= a_pprot;
-        a_pstrb_r   <= a_pstrb;
-    end    
-end
-
-always @(posedge a_pclk or negedge a_prst_n) begin
-    if (!a_prst_n) begin
-        a_pready_r <= 1'b1;
+        a_pready_r  <= 1'b1;
     end
     else begin
         if (a_psel && !a_penable) begin
-            a_pready_r <= 1'b0;
+            a_apb_req_r <= !a_apb_req_r;
+            a_pready_r  <= 1'b0;
+            a_pwrite_r  <= a_pwrite;
+            a_pwdata_r  <= a_pwdata;
+            a_paddr_r   <= a_paddr;
+            a_pprot_r   <= a_pprot;
+            a_pstrb_r   <= a_pstrb;
         end
         else if (b2a_ready_req_edge) begin
-            a_pready_r <= 1'b1;
-            a_prdata_r <= rdata;
+            a_pready_r  <= 1'b1;
         end
+    end
+end
+
+always @(posedge a_pclk) begin
+    if (a_penable && a_pready) begin   
+        a_prdata_r <= rdata;
     end
 end
 

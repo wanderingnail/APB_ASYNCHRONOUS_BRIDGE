@@ -29,7 +29,7 @@ assign b_prdata  = mem[b_paddr_L];
 assign b_pready  = 1'b1;
 
 always @(posedge b_pclk or negedge b_prst_n ) begin
-    if (b_penable && b_pwrite && b_pready) begin
+    if (b_pwrite && b_penable && b_pready) begin
         mem[b_paddr_L] <= b_pwdata;
     end
 end
