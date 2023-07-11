@@ -25,12 +25,12 @@ VCD warning: $dumpvars: Package ($unit) is not dumpable with VCD.
 ../sim/tb_asyn_bridge.v:67: $finish called at 100002 (1ns)
  ...execute Postsim callbacks
 Event counts:
-       33339 time steps (pool=113)
-      100950 thread schedule events
-      153237 assign events
+       22084 time steps (pool=113)
+       47279 thread schedule events
+       71301 assign events
              ...assign(vec4) pool=9362
              ...assign(vec8) pool=204
              ...assign(real) pool=256
              ...assign(word) pool=128
              ...assign(word/r) pool=204
-       52915 other events (pool=4096)
+       32052 other events (pool=4096)

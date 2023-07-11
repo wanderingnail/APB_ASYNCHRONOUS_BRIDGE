@@ -41,7 +41,7 @@ end
 initial begin
     a_pclk = 1'b0;
     forever begin
-        #3;
+        #7;
         a_pclk = ~a_pclk;
     end
 end
@@ -49,7 +49,7 @@ end
 initial begin
     b_pclk = 1'b0;
     forever begin
-        #6;
+        #11;
         b_pclk = ~b_pclk;
     end
 end
